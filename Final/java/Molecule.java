@@ -1,4 +1,5 @@
 package Final.java;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Molecule {
@@ -7,16 +8,24 @@ public class Molecule {
     private double opt;
     private int num_of_hits;
     private double[] structure;
-    private int[] supersequence;
+    private ArrayList<Integer> supersequence;
 
     // Constructor
-    public Molecule(double[] structure, int[] supersequence) {
+    public Molecule(double[] structure, ArrayList<Integer> supersequence) {
         this.pe = 0;
         this.ke = 0;
         this.opt = 9999999;
         this.num_of_hits = 0;
         this.structure = Arrays.copyOf(structure, structure.length);
-        this.supersequence = Arrays.copyOf(supersequence, supersequence.length);
+        this.supersequence = new ArrayList<>(supersequence);
+    }
+    public Molecule(Molecule another) {
+        this.pe = another.pe;
+        this.ke = another.ke;
+        this.opt = another.opt;
+        this.num_of_hits = another.num_of_hits;
+        this.structure = Arrays.copyOf(another.structure, another.structure.length);
+        this.supersequence = new ArrayList<>(another.getSupersequence());
     }
 
     // Update method
@@ -43,8 +52,8 @@ public class Molecule {
     }
 
     // Getter for supersequence
-    public int[] getSuper() {
-        return supersequence;
+    public ArrayList<Integer> getSupersequence() {
+        return this.supersequence;
     }
 
     // Additional Getters and Setters as needed
@@ -89,7 +98,7 @@ public class Molecule {
         this.structure = Arrays.copyOf(structure, structure.length);
     }
 
-    public void setSupersequence(int[] supersequence) {
-        this.supersequence = Arrays.copyOf(supersequence, supersequence.length);
+    public void setSupersequence(ArrayList<Integer> supersequence) {
+        this.supersequence = new ArrayList<>(supersequence);
     }
 }
