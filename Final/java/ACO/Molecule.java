@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Molecule {
+
     private double pe;
     private double ke;
     private double opt;
@@ -9,7 +10,7 @@ public class Molecule {
     private double[] structure;
     private ArrayList<Integer> supersequence;
 
-    // Constructor
+    // Constructors
     public Molecule(double[] structure, ArrayList<Integer> supersequence) {
         this.pe = 0;
         this.ke = 0;
@@ -18,6 +19,7 @@ public class Molecule {
         this.structure = Arrays.copyOf(structure, structure.length);
         this.supersequence = new ArrayList<>(supersequence);
     }
+
     public Molecule(Molecule another) {
         this.pe = another.pe;
         this.ke = another.ke;
@@ -50,12 +52,11 @@ public class Molecule {
         return reVal.toString();
     }
 
-    // Getter for supersequence
+    // Getters and Setters
+
     public ArrayList<Integer> getSupersequence() {
         return this.supersequence;
     }
-
-    // Additional Getters and Setters as needed
 
     public double getPe() {
         return pe;

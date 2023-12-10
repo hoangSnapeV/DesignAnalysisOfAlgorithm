@@ -70,12 +70,9 @@ public class Initialization {
 
     public static ArrayList<Molecule> initialization(int popSize, List<String> setOfStrings) {
         List<String> initialPopulation = populationGeneration(popSize, setOfStrings);
-        // System.out.println("Population Generation:");
-        // System.out.println(initialPopulation);
     
         List<String> encodedPopulation = encodingPopulation(initialPopulation);
-        // System.out.println("Encoding:");
-        // System.out.println(encodedPopulation);
+       
     
         ArrayList<Molecule> molecules = new ArrayList<>();
         for (String s : encodedPopulation) {

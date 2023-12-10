@@ -1,21 +1,20 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainTest {
     public static void main(String[] args) {
         // Test data
-        List<Integer> molecule = List.of(0, 1, 2, 3);
-        List<String> encodedPopulation = List.of("0123", "3012", "2301");
-        
-        // Test frequency function
-        List<Integer> frequencies = FrequencyCalculator.frequency(molecule);
-        System.out.println("Frequencies: " + frequencies);
+        ArrayList<String> initialPop = new ArrayList<>(List.of("acg", "cat", "gtt", "tgc", "tcc"));
+        ArrayList<String> encodedPopulation = Initialization.encodingPopulation(initialPop);
+        List<Integer> molecule = Decoder.decodeToIntList(encodedPopulation);
 
-        // Test decodeToIntList function
-        List<Integer> decodedIntList = Decoder.decodeToIntList(encodedPopulation);
-        System.out.println("Decoded Int List: " + decodedIntList);
+        int n = initialPop.size();
+        List<Integer> frequencies = FrequencyCalculator.frequency(molecule);
 
         // Test checkAllElements function
-        boolean allElementsPresent = ElementChecker.checkAllElements(decodedIntList);
-        System.out.println("All Elements Present: " + allElementsPresent);
+
+        ArtificialBeeColony moleculeColony = new ArtificialBeeColony(initialPop, molecule, frequencies, 1000, n, 1000);
+        List<Integer> bestStructure = moleculeColony.solve();
+        System.out.println(bestStructure);
     }
 }
