@@ -24,7 +24,7 @@ public class Operators {
         // }
         // System.out.println(operators.decomposition(mol1));
 
-        System.out.println(operators.synthesis(mol1, mol2));
+        // System.out.println(operators.synthesis(mol1, mol2));
     }
 
     // OnWall Ineffective Collision
