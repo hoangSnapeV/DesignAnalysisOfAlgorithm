@@ -19,8 +19,8 @@ public class AntColonyOptimizer {
 
     public AntColonyOptimizer(List<String> initialPop, int popsize, int iteration) {
         molecules = new ArrayList<>();
-        origin = initialization2.initialization(popsize, initialPop) ;
-        
+        origin = initialization2.initialization(popsize, initialPop);
+
         for (String originalString : origin) {
             List<Integer> digitList = new ArrayList<>();
             for (char digit : originalString.toCharArray()) {
@@ -39,10 +39,10 @@ public class AntColonyOptimizer {
         uniqueElements.sort(Integer::compareTo);
 
         distanceMatrix = new ArrayList<>();
-        for (int i = 0; i < molecules.get(0).size()-2; i++) {
+        for (int i = 0; i < molecules.get(0).size() - 2; i++) {
             List<Integer> column = new ArrayList<>();
             for (List<Integer> molecule : molecules) {
-               
+
                 if (i < molecule.size()) {
                     column.add(molecule.get(i));
                 } else {
@@ -79,7 +79,8 @@ public class AntColonyOptimizer {
         return new AbstractMap.SimpleEntry<>(updatedAntPath, updatedDistance);
     }
 
-    public Entry<List<Integer>, Double> globalPheromoneUpdate(Entry<List<Integer>, Double> antPath, int a, int b, int c) {
+    public Entry<List<Integer>, Double> globalPheromoneUpdate(Entry<List<Integer>, Double> antPath, int a, int b,
+            int c) {
         List<Integer> updatedAntPath = new ArrayList<>(antPath.getKey());
         swap(updatedAntPath, a, b);
         swap(updatedAntPath, b, c);
@@ -120,16 +121,16 @@ public class AntColonyOptimizer {
                 int randomAntIndex = random.nextInt((int) passMethod);
 
                 if (random.nextDouble() < transitionProbability) {
-                    Entry<List<Integer>, Double> morePowerfulAnt =
-                            localPheromoneUpdate(goAnt, random.nextInt(n), random.nextInt(n));
+                    Entry<List<Integer>, Double> morePowerfulAnt = localPheromoneUpdate(goAnt, random.nextInt(n),
+                            random.nextInt(n));
 
                     if (ants.get(randomAntIndex).getValue() > morePowerfulAnt.getValue()) {
                         ants.set(randomAntIndex, morePowerfulAnt);
                     }
                 } else {
                     for (int i = numAnts - worstAnts; i < numAnts; i++) {
-                        Entry<List<Integer>, Double> updatedAnt =
-                                localPheromoneUpdate(ants.get(i), random.nextInt(n), random.nextInt(n));
+                        Entry<List<Integer>, Double> updatedAnt = localPheromoneUpdate(ants.get(i), random.nextInt(n),
+                                random.nextInt(n));
                         ants.set(i, updatedAnt);
                     }
                     ants.sort(Entry.comparingByValue());
@@ -156,12 +157,13 @@ public class AntColonyOptimizer {
             Set<Integer> uniqueElementsSet = new HashSet<>(antCosts);
 
             if (uniqueElementsSet.containsAll(Set.of(0, 1, 2, 3))) {
-               
-                return antCosts; 
+
+                return antCosts;
             }
         }
     }
-     public static <T> List<T> sample(List<T> inputList, int k) {
+
+    public static <T> List<T> sample(List<T> inputList, int k) {
         if (k > inputList.size()) {
             throw new IllegalArgumentException("Sample size is larger than the input list size.");
         }
@@ -176,11 +178,8 @@ public class AntColonyOptimizer {
         int popsize = 10000;
         int iteration = 10000;
         AntColonyOptimizer acoInstance = new AntColonyOptimizer(initialPop, popsize, iteration);
-        List<Integer>result = acoInstance.solve();
+        List<Integer> result = acoInstance.solve();
         System.out.println(result);
     }
 
-   
-   
 }
-
