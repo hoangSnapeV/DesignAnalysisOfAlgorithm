@@ -1,4 +1,4 @@
-package Final.java;
+
 
 
 import java.util.*;
@@ -13,6 +13,11 @@ public abstract class IMCRO {
     protected double init_ke = 100;
     protected double buffer = 0;
     private ArrayList<ArrayList<Integer>> checkSequences ;
+    protected abstract ArrayList<Molecule> inter(Molecule molecule1,Molecule molecule2);
+    protected abstract Molecule wall (Molecule molecule);
+    protected abstract ArrayList<Molecule> dec(Molecule molecule);
+    protected abstract Molecule syn(Molecule molecule1,Molecule molecule2);
+    protected abstract double fit_func(Molecule molecule);
 
     ArrayList<Molecule> pop = new ArrayList<>();
     Operators ops = new Operators();
@@ -210,9 +215,5 @@ public abstract class IMCRO {
         }
     }
     
-    protected abstract ArrayList<Molecule> inter(Molecule molecule1,Molecule molecule2);
-    protected abstract Molecule wall (Molecule molecule);
-    protected abstract ArrayList<Molecule> dec(Molecule molecule);
-    protected abstract Molecule syn(Molecule molecule1,Molecule molecule2);
-    protected abstract double fit_func(Molecule molecule);
+    
 }

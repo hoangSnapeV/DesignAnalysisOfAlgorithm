@@ -1,4 +1,4 @@
-package Final.java;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 public class Initialization {
 
     public static void main(String[] args) {
-        // ArrayList<Molecule> molecules = initialization(20, Arrays.asList("acg", "cat", "gtt", "tgc"));
-        // for (Molecule m : molecules) {
-        //     System.out.println(m);
-        // }
+        ArrayList<Molecule> molecules = initialization(20, Arrays.asList("acg", "cat", "gtt", "tgc"));
+        for (Molecule m : molecules) {
+   
+        }
     }
     
     public static String insertSymbol(String srcString, String insertedString, int pos) {
@@ -70,12 +70,9 @@ public class Initialization {
 
     public static ArrayList<Molecule> initialization(int popSize, List<String> setOfStrings) {
         List<String> initialPopulation = populationGeneration(popSize, setOfStrings);
-        System.out.println("Population Generation:");
-        System.out.println(initialPopulation);
     
         List<String> encodedPopulation = encodingPopulation(initialPopulation);
-        System.out.println("Encoding:");
-        System.out.println(encodedPopulation);
+       
     
         ArrayList<Molecule> molecules = new ArrayList<>();
         for (String s : encodedPopulation) {
