@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainTest {
+public class MainTestACB {
     public static void main(String[] args) {
         // Test data
         ArrayList<String> initialPop = new ArrayList<>(List.of("acg", "cat", "gtt", "tgc", "tcc"));

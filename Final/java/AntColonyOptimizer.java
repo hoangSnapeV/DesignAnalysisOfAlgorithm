@@ -33,13 +33,14 @@ public class AntColonyOptimizer {
         for (List<Integer> sublist : molecules) {
             flattenedMolecules.addAll(sublist);
         }
+    
 
         Set<Integer> uniqueElementsSet = new HashSet<>(flattenedMolecules);
         uniqueElements = new ArrayList<>(uniqueElementsSet);
         uniqueElements.sort(Integer::compareTo);
 
         distanceMatrix = new ArrayList<>();
-        for (int i = 0; i < molecules.get(0).size()-2; i++) {
+        for (int i = 0; i < molecules.get(0).size()-3 ; i++) {
             List<Integer> column = new ArrayList<>();
             for (List<Integer> molecule : molecules) {
                
@@ -177,7 +178,7 @@ public class AntColonyOptimizer {
         int iteration = 100;
         AntColonyOptimizer acoInstance = new AntColonyOptimizer(initialPop, popsize, iteration);
         List<Integer>result = acoInstance.solve();
-      
+        
     }
 
    

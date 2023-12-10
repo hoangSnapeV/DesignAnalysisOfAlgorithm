@@ -13,10 +13,10 @@ public class TimeComparison {
             List<Double> timeRun = new ArrayList<>();
             
             // IMCRO
-           
+            long startTime1 = System.currentTimeMillis() ; 
             ArrayList<Molecule> molecules = Initialization.initialization(popSize.get(i), initialPop);
             // start the timer
-            long startTime1 = System.currentTimeMillis() ; 
+           
             IMCRO myimcro1 = new MYIMCRO(molecules, initialPop);
             myimcro1.run();
             long endTime1 = System.currentTimeMillis();
@@ -24,14 +24,14 @@ public class TimeComparison {
             timeRun.add(duration1);
 
             // ACB
-           
+            long startTime2 = System.currentTimeMillis();
             ArrayList<String> encodedPopulation = Initialization.encodingPopulation(initialPop);
             List<Integer> molecule = Decoder.decodeToIntList(encodedPopulation);
 
             int n = initialPop.size();
             List<Integer> frequencies = FrequencyCalculator.frequency(molecule);
             // start the timer
-            long startTime2 = System.currentTimeMillis();
+        
             ArtificialBeeColony moleculeColony = new ArtificialBeeColony(initialPop, molecule, frequencies, popSize.get(i), n, iteration.get(i));
             List<Integer> bestStructure = moleculeColony.solve();
             long endTime2 = System.currentTimeMillis();
@@ -64,8 +64,31 @@ public class TimeComparison {
         List<List<Double>> result = compareTime(initialPop, popSize, iterations);
 
         // Print the result if needed
+        System.out.println("IMCRO , ABC , ACO");
         for (List<Double> timeRun : result) {
+        
+            System.out.println(timeRun);
+        }
+
+
+
+        System.out.println();
+            // another test 
+        System.out.println("IMCRO , ABC , ACO");
+        initialPop = new ArrayList<>(List.of(  "acg", "cat", "gtt", "tgc","tcc"));
+        popSize = new ArrayList<>(List.of(100, 500, 100, 500, 100, 500, 100, 500, 1000, 100, 500));
+
+          // Second column converted to Java code
+        iterations = new ArrayList<>(List.of(500, 500, 1000, 1000, 100, 100, 500, 500, 500, 100, 100));
+
+        result = compareTime(initialPop, popSize, iterations);
+
+        // Print the result if needed
+        System.out.println("IMCRO , ABC , ACO");
+        for (List<Double> timeRun : result) {
+        
             System.out.println(timeRun);
         }
     }
+
 }
