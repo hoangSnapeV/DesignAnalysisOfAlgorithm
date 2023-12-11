@@ -73,8 +73,8 @@ public class TimeComparison {
         System.out.println();
         // another test 
         System.out.println("IMCRO , ABC , ACO");
-        initialPop = new ArrayList<>(List.of(  "acg", "cat", "gtt", "tgc","tcc"));
-        popSize = new ArrayList<>(List.of(100, 500, 100, 500, 100, 500, 100, 500, 1000, 100, 500));
+        initialPop = new ArrayList<>(List.of(  "acg", "cat", "gtt", "tgc","tcc", "acg"));
+        popSize = new ArrayList<>(List.of(100, 500, 1000, 5000, 100, 500, 100, 500, 1000, 100, 500));
 
           // Second column converted to Java code
         iterations = new ArrayList<>(List.of(500, 500, 1000, 1000, 100, 100, 500, 500, 500, 100, 100));
@@ -82,7 +82,6 @@ public class TimeComparison {
         result = compareTime(initialPop, popSize, iterations);
 
         // Print the result if needed
-        System.out.println("IMCRO , ABC , ACO");
         for (List<Double> timeRun : result) {
         
             System.out.println(timeRun);
