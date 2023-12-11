@@ -5,7 +5,19 @@ import java.util.Random;
 
 public class Operators {
 
-    // OnWall Ineffective Collision
+    // OnWall Ineffective 
+    /*
+    Objective: 
+    -  This focuses on instances of molecules colliding with container walls, resulting in structural transformations.
+    - A "one-difference operator" is used to make a single change in the molecule's composition to achieve this.
+
+    Input:
+    - molecule (list): the input molecule and it represent by list
+
+    Output:
+    - The method returns a new list. 
+
+     */
     public ArrayList<Integer> onWall(ArrayList<Integer> molecule) {
         ArrayList<Integer> m = new ArrayList<>(molecule);
         Random rand = new Random();
@@ -27,6 +39,28 @@ public class Operators {
     }
 
     // Intermolecular Ineffective Collision
+    /*
+    Objective: 
+    -  The purpose is to introduce significant changes to enhance local search capabilities and prevent getting stuck in local optimization by promoting diversity.
+    - A crossover operator is used in genetic or evolutionary algorithms for optimization. It selects two molecules from the population and uses a two-step mechanism to generate two new solutions.
+    - It is a two step process: the first step is to crossover between two molecules, and the second step is to crossover inside the molecule itself
+
+    Input:
+    - molecule (list): the input molecule and it represent by list
+
+    Output:
+    - The method returns a tuple (m1, m2), where m1 and m2 are the two molecules and m1, m2 are also list. Objective: 
+    -  The purpose is to introduce significant changes to enhance local search capabilities and prevent getting stuck in local optimization by promoting diversity.
+    - A crossover operator is used in genetic or evolutionary algorithms for optimization. It selects two molecules from the population and uses a two-step mechanism to generate two new solutions.
+    - It is a two step process: the first step is to crossover between two molecules, and the second step is to crossover inside the molecule itself
+
+    Input:
+    - molecule (list): the input molecule and it represent by list
+
+    Output:
+    - The method returns a tuple (m1, m2), where m1 and m2 are the two molecules and m1, m2 are also list. 
+
+     */
     public ArrayList<ArrayList<Integer>> intermolecular(ArrayList<Integer> molecule1, ArrayList<Integer> molecule2) {
         int length1 = molecule1.size();
         int length2 = molecule2.size();
@@ -91,6 +125,20 @@ public class Operators {
         return result;
     }
 
+    //Decomposition
+    /*
+    Objective: 
+    - The decomposition involves randomly selecting two numbers 'a' and 'b', and then splitting the input molecule into two new molecules, 'm1' and 'm2', based on the selected numbers. 
+    - The negative number −a is used for shifting to the left a steps. 
+    - The positive number j is used for shifting to the right j steps.
+
+    Input:
+    - molecule (list): the input molecule and it represent by list
+
+    Output:
+    - The method returns a tuple (m1, m2), where m1 and m2 are the two molecules and m1, m2 are also list.
+     */
+
     public ArrayList<ArrayList<Integer>> decomposition(ArrayList<Integer> molecule){
 
         int moleculeLength = molecule.size();
@@ -131,6 +179,20 @@ public class Operators {
 
         return result;
     }
+
+    //Synthesis
+    /*
+    Objective:
+    - Generates a new list by combining two input lists in a way that preserves the frequency of the symbols used in each input list.
+
+    Input:
+    - molecule1 (list): The first input list.
+    - molecule2 (list): The second input list.
+
+    Output:
+    - The method returns a new list. 
+     */
+
     public ArrayList<Integer> synthesis(ArrayList<Integer> molecule1,ArrayList<Integer> molecule2 )
     {
         HashMap <Integer, Integer> array1 = new HashMap<>();

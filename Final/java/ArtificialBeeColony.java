@@ -3,6 +3,14 @@ import java.util.List;
 import java.util.Random;
 
 class MoleculeBee {
+    /*
+    OBject: Represents a molecule with a structure composed of atoms and associated frequencies.
+        
+    Attributes:
+        molecule (list): List of atoms forming the molecule.
+        frequencies (list): List of frequencies corresponding to each atom in the molecule.
+        structure (list): Initial structure of the molecule, randomly chosen from the given atoms.
+     */
     private List<Integer> molecule;
     private List<Integer> frequencies;
     private List<Integer> structure;
@@ -18,6 +26,12 @@ class MoleculeBee {
         }
     }
 
+    /*
+    OBject: Calculates the fitness of the current molecule structure based on frequencies.
+
+    Output:
+        The fitness value: int
+    */    
     public int calculateFitness() {
         int fitness = 0;
         for (Integer atom : structure) {
@@ -25,6 +39,13 @@ class MoleculeBee {
         }
         return fitness;
     }
+
+    /*
+    OBject: Generates a new random structure for the molecule based on frequencies.
+
+    Output:
+        A new structure (list) for the molecule composed of randomly chosen frequencies.
+     */
 
     public List<Integer> generateNewStructure() {
         List<Integer> newStructure = new ArrayList<>();
@@ -64,6 +85,20 @@ class MoleculeBee {
     }
 }
 
+/*
+OBject: Represents an Artificial Bee Colony optimization algorithm for molecule structure.
+        
+Attributes:
+    initial_pop: Initial population for the optimization.
+    molecule (list): List of atoms forming the molecule. (Note: molecule is not defined in this scope.)
+    frequencies (list): List of frequencies corresponding to each atom in the molecule.
+    population_size (int): Size of the population in the optimization.
+    max_cycles (int): Maximum number of cycles or iterations.
+    mo: Initialization (Assumed to be a function or data structure) result for the population.
+    n (int): Number of cycles or iterations.
+    molecules (list): List of Molecule_Bee instances representing the population of molecules.
+ */
+
 public class ArtificialBeeColony {
     private List<MoleculeBee> molecules;
     private List<Integer> molecule ; 
@@ -88,6 +123,12 @@ public class ArtificialBeeColony {
         }
     }
 
+    /*
+    OBject: Solves the optimization problem using the Artificial Bee Colony algorithm.
+
+    Output:
+        The best structure(list<int>) found by the algorithm.
+     */
     public List<Integer> solve() {
         long startTime = System.currentTimeMillis(); // Start
 
@@ -126,6 +167,16 @@ public class ArtificialBeeColony {
         return bestStructure;
     }
 
+    /*
+    OBject: Calculates the fitness of a given structure.
+
+    Input:
+        structure (list): The structure for which fitness needs to be calculated.
+
+    Output:
+        The fitness value of the given structure.
+     */
+
     private int calculateFitness(List<Integer> structure) {
         int fitness = 0;
         for (Integer atom : structure) {
@@ -133,6 +184,13 @@ public class ArtificialBeeColony {
         }
         return fitness;
     }
+
+    /*
+    OBject: Calculates the average fitness of all molecules in the population.
+
+    Output:
+        The average fitness(float) value of the population.
+     */
 
     private double averageFitness() {
         double totalFitness = 0;
@@ -142,14 +200,15 @@ public class ArtificialBeeColony {
         return totalFitness / n;
     }
 
-    // Assume initialization method, similar to the Python code
-    // private List<Integer> initialization(int populationSize, List<Integer> initialPop) {
-    //     // Implementation of the initialization method
-    //     // ...
+    /*
+    OBject: Checks if all specified elements are present in the given list.
 
-    //     return new ArrayList<>(); // Placeholder, replace with actual implementation
-    // }
+    Input:
+        my_list (list): The list to be checked.
 
+    Output:
+        True if all elements are present, False otherwise.
+     */
     private boolean checkAllElements(List<Integer> myMolecule) {
         List<Integer> elementsToCheck = List.of(0, 1, 2, 3);
         return myMolecule.containsAll(elementsToCheck);

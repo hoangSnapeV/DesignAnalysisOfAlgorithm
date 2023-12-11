@@ -57,6 +57,12 @@ public class AntColonyOptimizer {
         iterationSize = iteration * 120;
     }
 
+    //calculateDistance
+    /*
+    sumarize the total cost walk by an ant in the given path
+    ant_path : list<int>
+     */
+
     public double calculateDistance(List<Integer> antPath) {
         int currentIndex = antPath.get(0);
         double distance = 0;
@@ -67,11 +73,21 @@ public class AntColonyOptimizer {
         return distance;
     }
 
+    //Swap
+    /*
+    swap a given sequence
+     */
     public void swap(List<Integer> sequence, int i, int j) {
         int temp = sequence.get(i);
         sequence.set(i, sequence.get(j));
         sequence.set(j, temp);
     }
+
+    //localPheromoneUpdate
+    /*
+    update multiple path that the ant have walk then return the updated calculate_distance
+    ant_path :tuple(list<int> , int)
+     */
 
     public Entry<List<Integer>, Double> localPheromoneUpdate(Entry<List<Integer>, Double> antPath, int a, int b) {
         List<Integer> updatedAntPath = new ArrayList<>(antPath.getKey());
@@ -171,17 +187,5 @@ public class AntColonyOptimizer {
         Collections.shuffle(sampledList);
         return sampledList.subList(0, k);
     }
-
-    // public static void main(String[] args) {
-    //     List<String> initialPop = List.of("acg", "cat", "gtt", "tgc");
-    //     int popsize = 100;
-    //     int iteration = 100;
-    //     AntColonyOptimizer acoInstance = new AntColonyOptimizer(initialPop, popsize, iteration);
-    //     List<Integer> result = acoInstance.solve();
-        
-    // }
-
-   
-   
 }
 

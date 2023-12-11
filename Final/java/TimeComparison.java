@@ -70,10 +70,8 @@ public class TimeComparison {
             System.out.println(timeRun);
         }
 
-
-
         System.out.println();
-            // another test 
+        // another test 
         System.out.println("IMCRO , ABC , ACO");
         initialPop = new ArrayList<>(List.of(  "acg", "cat", "gtt", "tgc","tcc"));
         popSize = new ArrayList<>(List.of(100, 500, 100, 500, 100, 500, 100, 500, 1000, 100, 500));
