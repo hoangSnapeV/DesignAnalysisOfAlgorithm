@@ -49,16 +49,7 @@ public class Operators {
     - molecule (list): the input molecule and it represent by list
 
     Output:
-    - The method returns a tuple (m1, m2), where m1 and m2 are the two molecules and m1, m2 are also list. Objective: 
-    -  The purpose is to introduce significant changes to enhance local search capabilities and prevent getting stuck in local optimization by promoting diversity.
-    - A crossover operator is used in genetic or evolutionary algorithms for optimization. It selects two molecules from the population and uses a two-step mechanism to generate two new solutions.
-    - It is a two step process: the first step is to crossover between two molecules, and the second step is to crossover inside the molecule itself
-
-    Input:
-    - molecule (list): the input molecule and it represent by list
-
-    Output:
-    - The method returns a tuple (m1, m2), where m1 and m2 are the two molecules and m1, m2 are also list. 
+    - The method returns a tuple (m1, m2), where m1 and m2 are the two molecules and m1, m2 are also list.
 
      */
     public ArrayList<ArrayList<Integer>> intermolecular(ArrayList<Integer> molecule1, ArrayList<Integer> molecule2) {

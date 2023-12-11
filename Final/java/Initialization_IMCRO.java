@@ -75,7 +75,7 @@ public class Initialization_IMCRO {
      * Create number of popsizes base on set of strings input, it called supersequences. Moreover, it use function encoding to repesent symbol to integer.    
      */
     public static ArrayList<Molecule> initialization(int popSize, List<String> setOfStrings) {
-        List<String> initialPopulation = populationGeneration(popSize, setOfStrings);
+        List<String> initialPopulation = populationGeneration(popSize, setOfStrings); 
     
         List<String> encodedPopulation = encodingPopulation(initialPopulation);
        
