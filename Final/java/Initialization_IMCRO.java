@@ -7,20 +7,17 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 
-public class Initialization {
+public class Initialization_IMCRO {
 
-    public static void main(String[] args) {
-        ArrayList<Molecule> molecules = initialization(20, Arrays.asList("acg", "cat", "gtt", "tgc"));
-        for (Molecule m : molecules) {
-   
-        }
-    }
+
     
     public static String insertSymbol(String srcString, String insertedString, int pos) {
         return new StringBuilder(srcString).insert(pos, insertedString).toString();
     }
 
-
+    /*
+    Make a copy of the set_of_strings parameter for maintaining the original set
+     */
     public static String supersequenceGenerate(List<String> setOfStrings) {
         Random random = new Random();
         List<String> copiedSetOfStrings = new ArrayList<>(setOfStrings);
@@ -39,6 +36,9 @@ public class Initialization {
         return supersequence;
 
     }
+    /*
+     * Create number of popsizes base on set of strings input, it called supersequences.   
+     */
     public static List<String> populationGeneration(int popSize, List<String> setOfStrings) {
         List<String> population = new ArrayList<>();
         for (int i = 0; i < popSize; i++) {
@@ -46,6 +46,11 @@ public class Initialization {
         }
         return population;
     }
+
+    /*
+     * Represent symbols from the alphabet and the
+    encoding sequence. Ex: a -> 0, c -> 1...
+     */
     public static ArrayList<String> encodingPopulation(List<String> initialPopulation) {
         ArrayList<String> encodedPopulation = new ArrayList<>();
         Map<Character, Integer> dict = Map.of('a', 0, 'c', 1, 'g', 2, 't', 3);
@@ -59,6 +64,7 @@ public class Initialization {
         }
         return encodedPopulation;
     }
+
     public static Molecule createMolecule(String string) {
         Random random = new Random();
         List<Integer> l = string.chars().map(Character::getNumericValue).boxed().collect(Collectors.toList());
@@ -67,7 +73,9 @@ public class Initialization {
         return new Molecule(new double[]{random.nextDouble(), random.nextDouble()},supersequence);
     }
 
-
+    /*
+     * Create number of popsizes base on set of strings input, it called supersequences. Moreover, it use function encoding to repesent symbol to integer.    
+     */
     public static ArrayList<Molecule> initialization(int popSize, List<String> setOfStrings) {
         List<String> initialPopulation = populationGeneration(popSize, setOfStrings);
     

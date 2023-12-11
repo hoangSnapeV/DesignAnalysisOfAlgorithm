@@ -2,6 +2,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Molecule {
+    /*
+    PE : Potential Energy (This is the number we focus on during the algorithm)
+    ke: Kinetic energy
+    numHit: Number of collisions by a molecule
+    optimal : This attribute will hold the Molecule Instance with the lowest PE
+    structure : Molecule Structe store as 1d array with 2 elements generated randomly (For example: [0.3860863116352774 0.4017794415965995])
+     */
     private double pe;
     private double ke;
     private double opt;
@@ -28,6 +35,10 @@ public class Molecule {
     }
 
     // Update method
+    /*
+    This is called whenever a Operator is performed
+    If this molecule has a lower energy, reset num_of_hits.
+     */
     public void update() {
         if (this.pe < this.opt) {
             this.opt = this.pe;

@@ -19,7 +19,7 @@ public class AntColonyOptimizer {
 
     public AntColonyOptimizer(List<String> initialPop, int popsize, int iteration) {
         molecules = new ArrayList<>();
-        origin = initialization2.initialization(popsize, initialPop) ;
+        origin = initialization_ACO.initialization(popsize, initialPop) ;
         
         for (String originalString : origin) {
             List<Integer> digitList = new ArrayList<>();
@@ -172,14 +172,14 @@ public class AntColonyOptimizer {
         return sampledList.subList(0, k);
     }
 
-    public static void main(String[] args) {
-        List<String> initialPop = List.of("acg", "cat", "gtt", "tgc");
-        int popsize = 100;
-        int iteration = 100;
-        AntColonyOptimizer acoInstance = new AntColonyOptimizer(initialPop, popsize, iteration);
-        List<Integer>result = acoInstance.solve();
+    // public static void main(String[] args) {
+    //     List<String> initialPop = List.of("acg", "cat", "gtt", "tgc");
+    //     int popsize = 100;
+    //     int iteration = 100;
+    //     AntColonyOptimizer acoInstance = new AntColonyOptimizer(initialPop, popsize, iteration);
+    //     List<Integer> result = acoInstance.solve();
         
-    }
+    // }
 
    
    

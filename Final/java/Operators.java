@@ -5,28 +5,6 @@ import java.util.Random;
 
 public class Operators {
 
-    public static void main(String [] args){
-        Operators operators = new Operators();
-
-        int [] m1 = {0,2,3,1,2};
-        int [] m2 = {2,3,0,0,2};
-        
-        ArrayList<Integer> mol1 = new ArrayList<Integer>();
-        ArrayList<Integer> mol2 = new ArrayList<Integer>();
-        for(int i : m1){
-            mol1.add(i);
-        }
-        for(int i : m2){
-            mol2.add(i);
-        }
-        // for(ArrayList<Integer> i :operators.intermolecular(mol1, mol2)){
-        //     System.out.println(i.toString());
-        // }
-        // System.out.println(operators.decomposition(mol1));
-
-        // System.out.println(operators.synthesis(mol1, mol2));
-    }
-
     // OnWall Ineffective Collision
     public ArrayList<Integer> onWall(ArrayList<Integer> molecule) {
         ArrayList<Integer> m = new ArrayList<>(molecule);

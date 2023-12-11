@@ -1,9 +1,17 @@
-
-
-
 import java.util.*;
 
 public abstract class IMCRO {
+    /*
+    popsize: popsize the List Of Molecule Instance
+    ke: Kinetic energy
+    numHit: Number of collisions by a molecule
+    optimal : This attribute will hold the Molecule Instance with the lowest PE 
+    kElossrate: Percentage of the upper limit of KE reduction
+    molecoll: Threshold to determine the type of chemical reaction: uni-molecule or inter-molecule
+    apha/beta: Threshold values for the intensification and diversification
+
+     */
+
     protected Molecule optmial = null;
     protected double moleColl = 0.2;
     Random rand = new Random();
@@ -61,7 +69,10 @@ public abstract class IMCRO {
         return this.optmial;
     }
     
-
+    /*
+    The Algorithm starts here randomly pick which reaction uni(randomly take 1 molecule from popsize) or inter (randomly take 2 molecule from popsize) 
+    The number of iteration is abritrary 
+     */
     public void run(){
         int i=0;
         while (i!=this.interations) {
@@ -116,6 +127,9 @@ public abstract class IMCRO {
         }
         return true;
     }
+    /*
+    If m is the current optimal solution, save it to the optimal.
+     */
     private void update(Molecule molecule){
         if (molecule.getSupersequence().size()<this.optmial.getSupersequence().size()
         && isSupersequence(molecule.getSupersequence()) ) {

@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainTestACB {
+public class MainTestABC {
     public static void main(String[] args) {
         // Test data
         ArrayList<String> initialPop = new ArrayList<>(List.of("acg", "cat", "gtt", "tgc", "tcc"));
-        ArrayList<String> encodedPopulation = Initialization.encodingPopulation(initialPop);
+        ArrayList<String> encodedPopulation = Initialization_IMCRO.encodingPopulation(initialPop);
         List<Integer> molecule = Decoder.decodeToIntList(encodedPopulation);
 
         int n = initialPop.size();

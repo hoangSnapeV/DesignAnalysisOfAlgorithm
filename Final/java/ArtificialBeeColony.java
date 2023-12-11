@@ -77,8 +77,8 @@ public class ArtificialBeeColony {
                                List<Integer> frequencies , List<Integer> molecule, int populationSize, int maxCycles, int n) {
         this.frequencies = frequencies;
         this.populationSize = populationSize;
-        this.maxCycles = maxCycles;
-        this.mo =  Initialization.initialization(populationSize, initialPop);
+        this.maxCycles = maxCycles * 10;
+        this.mo =  Initialization_IMCRO.initialization(populationSize, initialPop);
         this.n = n;
         this.molecule  = molecule ; 
         this.molecules = new ArrayList<>();

@@ -14,7 +14,7 @@ public class TimeComparison {
             
             // IMCRO
             long startTime1 = System.currentTimeMillis() ; 
-            ArrayList<Molecule> molecules = Initialization.initialization(popSize.get(i), initialPop);
+            ArrayList<Molecule> molecules = Initialization_IMCRO.initialization(popSize.get(i), initialPop);
             // start the timer
            
             IMCRO myimcro1 = new MYIMCRO(molecules, initialPop);
@@ -25,7 +25,7 @@ public class TimeComparison {
 
             // ACB
             long startTime2 = System.currentTimeMillis();
-            ArrayList<String> encodedPopulation = Initialization.encodingPopulation(initialPop);
+            ArrayList<String> encodedPopulation = Initialization_IMCRO.encodingPopulation(initialPop);
             List<Integer> molecule = Decoder.decodeToIntList(encodedPopulation);
 
             int n = initialPop.size();
