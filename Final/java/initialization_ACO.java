@@ -1,8 +1,4 @@
-
-
-
 import java.util.List;
-
 
 public class initialization_ACO {
     public static List<String> initialization(int popSize, List<String> setOfStrings) {

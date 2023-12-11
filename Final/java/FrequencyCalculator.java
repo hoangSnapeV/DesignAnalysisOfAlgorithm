@@ -3,6 +3,15 @@
 import java.util.*;
 
 public class FrequencyCalculator {
+    /*
+    OBject: Calculates the frequency of each element in the given molecule.
+
+    Input:
+        molecule (list<int>): List of atoms forming the molecule.
+
+    Output:
+        A list <int> representing the sorted frequencies of each element in the molecule.
+     */
     public static <T extends Comparable<T>> List<T> frequency(List<T> molecule) {
         Map<T, Integer> array1 = new HashMap<>();
         for (T symbol : molecule) {

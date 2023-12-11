@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 
 public class Initialization_IMCRO {
 
-
-    
     public static String insertSymbol(String srcString, String insertedString, int pos) {
         return new StringBuilder(srcString).insert(pos, insertedString).toString();
     }

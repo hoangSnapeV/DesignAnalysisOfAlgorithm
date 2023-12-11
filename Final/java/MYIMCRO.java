@@ -5,8 +5,6 @@ import java.util.Random;
 
 public class MYIMCRO extends IMCRO {
 
-
-
     public MYIMCRO(ArrayList<Molecule> pop, ArrayList<String> checkSequences) {
         super(pop, checkSequences);
         //TODO Auto-generated constructor stub
@@ -25,7 +23,9 @@ public class MYIMCRO extends IMCRO {
         result.add(newMolecule2);
         return result;
     }
-
+    /*
+    Fit_func function for deciding PE base on the struct attribute
+     */
     @Override
     protected double fit_func(Molecule molecule) {
         // TODO Auto-generated method stub
